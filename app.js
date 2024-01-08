@@ -7,7 +7,17 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var suppliersRouter = require('./routes/suppliers');
-var app = express();
+
+/* REFERENCIA AL MÓDULO */
+const swaggerUi = require('swagger-ui-express')
+
+/* REFERENCIA AL ARCHIVO GENERADO */
+const swaggerFile = require('./swagger_output.json')
+
+const app = express();
+
+/* CONFIGURACIÓN DE LA RUTA A LA DOCUMENTACIÓN */
+app.use('/documentation', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

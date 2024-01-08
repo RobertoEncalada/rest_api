@@ -1,0 +1,160 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "REST API",
+    "description": ""
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/suppliers/findAll": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/suppliers/findById/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/suppliers/save": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "SupplierName": {
+                  "example": "any"
+                },
+                "ContactName": {
+                  "example": "any"
+                },
+                "Address": {
+                  "example": "any"
+                },
+                "City": {
+                  "example": "any"
+                },
+                "PostalCode": {
+                  "example": "any"
+                },
+                "Country": {
+                  "example": "any"
+                },
+                "Phone": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/suppliers/update": {
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "SupplierID": {
+                  "example": "any"
+                },
+                "SupplierName": {
+                  "example": "any"
+                },
+                "ContactName": {
+                  "example": "any"
+                },
+                "Address": {
+                  "example": "any"
+                },
+                "City": {
+                  "example": "any"
+                },
+                "PostalCode": {
+                  "example": "any"
+                },
+                "Country": {
+                  "example": "any"
+                },
+                "Phone": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/suppliers/delete/{id}": {
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    }
+  }
+}
