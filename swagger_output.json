@@ -10,6 +10,15 @@
   "schemes": [
     "http"
   ],
+  "securityDefinitions": {
+    "ApiKeyAuth": {
+      "name": "jwt_token",
+      "in": "header",
+      "type": "apiKey",
+      "description": "JWT Token header"
+    }
+  },
+  "security": [ { "ApiKeyAuth": [] } ],
   "paths": {
     "/suppliers/findAll": {
       "get": {

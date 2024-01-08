@@ -4,9 +4,18 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+/* MÓDULO dotenv */
+const dotenv = require('dotenv');
+/* CARGA DE DATOS DE CONFIGURACION EN MEMORIA */
+dotenv.config();
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var suppliersRouter = require('./routes/suppliers');
+
+/* Referencia al middleware */
+var authJWT = require('./middleware/auth');
+  
 
 /* REFERENCIA AL MÓDULO */
 const swaggerUi = require('swagger-ui-express')
@@ -31,7 +40,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/suppliers', suppliersRouter);
+app.use('/suppliers', authJWT, suppliersRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
